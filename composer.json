@@ -1,0 +1,31 @@
+{
+  "name": "omatech/laravel-autoview",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adrià Roca",
+      "email": "aroca@omatech.com"
+    }
+  ],
+  "require": {
+    "laravel/framework" : "5.7.*"
+  },
+  "autoload": {
+    "files": [
+      "src/app/Http/helpers.php"
+    ],
+    "psr-4": {
+      "Omatech\\AutoView\\": "src",
+      "Omatech\\AutoView\\App\\": "src/app"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Omatech\\AutoView\\AutoViewServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
