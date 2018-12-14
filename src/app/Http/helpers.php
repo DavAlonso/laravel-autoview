@@ -17,21 +17,15 @@ if (!function_exists('pages_folder')) {
 if (!function_exists('autoview')) {
     /**
      * @param null $view
-     * @param array $data
      * @param bool $ignoreBase
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    function autoview($view = null, $data = [], $ignoreBase = false)
+    function autoview($view = null, $ignoreBase = false)
     {
         if ($ignoreBase) {
             $path = $view;
 
         } else {
-
-            if (is_array($view)) {
-                $data = $view;
-                $view = null;
-            }
 
             $baseFolder = pages_folder();
 
@@ -44,6 +38,6 @@ if (!function_exists('autoview')) {
             ]));
         }
 
-        return view($path, $data);
+        return view($path);
     }
 }

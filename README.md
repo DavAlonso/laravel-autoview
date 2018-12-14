@@ -42,13 +42,13 @@ public function index()
 
 * You can modify the name of general folder by publishing the configuration file and modifying the option ```pages_folder```. It can also be ignored by setting ```false```.
 
-* If a view needs some data, it is only necessary to pass an array.
+* If a view needs some data, you can use ```with``` method of class ```Illuminate\View\View```.
 
 ```
 public function show($id)
 {
     $product = Product::find($id);
-    return autoview(['product' => $product]);
+    return autoview()->with(compact('title', 'subtitle'));
 }
 ```
 
@@ -65,17 +65,17 @@ public function showLoginForm()
 public function showLoginForm()
 {
     $title = 'Login Title';
-    return autoview('login', ['title' => $title]);
+    return autoview('login')->with(compact('title'));
 }
 ```
 
-* You can ignore the basic structure by setting the third parameter to ```false```. Although to do this it is better to directly use ```view```.
+* You can ignore the basic structure by setting the second parameter to ```false```. Although to do this it is better to directly use ```view```.
 
 ```
 public function showLoginForm()
 {
     $title = 'Login Title';
-    return autoview('login', ['title' => $title], false); // = view('login', ['title' => $title])
+    return autoview('login', false); // = view('login')
 }
 ```
 
